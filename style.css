@@ -1,3 +1,149 @@
 .shop-item{
-    height:500px;
+    width:40%;
+    display: block;
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:20px;
+
 }
+
+.itemDesc{
+
+    font-family: 'Cabin', sans-serif;
+    color:black;
+    text-align:center;
+    font-size:20px;
+    opacity:0.6;
+}
+
+#itemTitle{
+
+
+    font-family: 'Cabin', sans-serif;
+    color:black;
+    text-align:center;
+    font-weight:900;
+    font-size:30px;
+    opacity: 0.7;
+}
+
+#centralBox{
+    margin:auto;
+    text-align:center;
+
+}
+.logo{
+    width:40%;
+    display: block;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    }
+
+a {
+    font-family: 'Cabin', sans-serif;
+    display: inline-block;
+    width: 80px;
+    color:black;
+    opacity:0.9;
+    text-align: center;
+}
+
+li {
+
+    margin: auto;
+    display: inline;
+    letter-spacing: 2px;
+
+}
+
+li a:hover,
+li a:active,
+li a:focus
+{
+    opacity:0.5;
+    text-decoration:none;
+}
+li a:visited {
+    text-decoration:none;
+}
+#paymentSection{
+text-align:center;
+padding-top:10px;
+
+
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 50px;
+    border: 1px solid #888;
+    width: 50%;
+
+  }
+
+  /* The Close Button */
+  .close {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #FF6600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #delivery{
+      font-size:small;
+      display:inline;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      letter-spacing: 0.3px;
+      font-family:'Cabin', sans-serif;
+
+
+  }
+  #delivery:hover{
+
+      cursor:pointer;
+  }
+
+  .price{
+font-weight:bold;
+font-family:  'Roboto Mono', monospace;
+font-size:20px;
+
+
+  }

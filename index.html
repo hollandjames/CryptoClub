@@ -8,7 +8,10 @@
 
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="jquery.js"></script>
+  <script src="scripts/scripts.js"> </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto+Mono" rel="stylesheet">
+
 
 
 </head>
@@ -17,25 +20,83 @@
 <body>
 
     <div class="container">
-        <h1>crypto club title</h1>
         <div class="row">
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color:lavender;">small</div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"> </div>
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+            <img src ="Images/logo.png" class="logo">
+
+            <div id ="navbar">
+
+                <ul>
+                    <li><a class="active" href="#">SHOP</a></li>
+                    <li><a href="#">CART</a></li>
+                    <li><a href="#">FAQ</a></li>
+                  </ul>
+
+
+
+
+
+            </div>
 
 
             <div id ="centralBox">
-              
-            
+
+
             <img class="shop-item" src="Images/hat.jpg">
 
-            <div id ="itemDesc"></div>
+
+                <div id ="itemTitle">
+
+                    Ethereum hat
+
+                </div>
+
+                <span class="price">£30.00</span> <div id ="delivery">Free Delivery*</div>
+
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+
+
+                      -----------------Delivery info-----------------<br>
+
+                      //just UK<br><br>
+                      //rest of world<br><br>
+                      //express options etc etc<br><br>
+                    </div>
+
+                    </div>
+
+
+
+                <div id ="paymentSection">
+                    <form action="https://bitpay.com/checkout" method="post" >
+                      <input type="hidden" name="action" value="checkout" />
+                      <input type="hidden" name="posData" value="" />
+                      <input type="hidden" name="data" value="LnriGp05pYm4p5y/l3AeORxr4RUCTYdH5xN8CIJbjQpir8FrQlbISS6solWYF2kZvNn0iGQftwG/x0fhjpybdKmC39VBzIC/iv01XKW5KxHYUIEkLUb7kvBARMqGLzcqwLsxUW75jn2UHxKJP1SC1jnoti64NugsL9TbjBYjJ44+ZTkvrts8c9lUfqj37gqo0WTd4a8LrqcHhSW8t5LIMffpxxqF+fhhMI6zW0yCdSDJ2UTmCGglzAvpPzzEWqn4jVnhRuTbhD1Ym2C8RwtKUzUW/RMzOJuD4HC2cL0tbYyDeVGcuMMkzdZZ9LOKGZdB" />
+                      <input type="image" src="https://bitpay.com/img/button5.png" border="0" name="submit" alt="BitPay, the easy way to pay with bitcoins." >
+                    </form>
+
+
+
+                </div>
+
+                    </div>
+
+
+
+
+
+
+
 
 
         </div>
-        
-        
+
         </div>
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="background-color:blue;">small</div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
 
         </div>
       </div>
@@ -43,6 +104,9 @@
 
 
 </body>
+<script>
+loadModal();
 
+</script>
 
 </html>
