@@ -11,7 +11,7 @@
   <script src="scripts/scripts.js"> </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto+Mono" rel="stylesheet">
-
+  <script src="cookie.js"></script>
 
 
 </head>
@@ -19,9 +19,46 @@
 
 <body>
 
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class ="itemInfo">
+          <div class="sideTitle"> CART</div>
+
+
+        <span id="item-name"></span>
+      <img class="side-item" id="side-pic"><br>
+
+      <div id ="itemQuantity"></div>
+      <div id="hatPrice"></div>
+      <br>
+      <div id ="mySubtotal"></div><br>
+
+
+    </div>
+
+
+
+    <button id ="emptyCart">Empty Cart</button> <button id="checkout" onclick="goCheckout()">Checkout</button>
+      </div>
+
+      <div id ="faqSidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeFaq()">&times;</a>
+          <div class ="itemInfo">
+
+          <div class="sideTitle"> FAQ</div>
+        </div>
+
+
+
+      </div>
+
+
     <div class="container">
         <div class="row">
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"> </div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+          </div>
           <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
             <img src ="Images/logo.png" class="logo">
@@ -29,9 +66,9 @@
             <div id ="navbar">
 
                 <ul>
-                    <li><a class="active" href="#">SHOP</a></li>
-                    <li><a href="#">CART</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a class="active" href="">SHOP</a></li>
+                    <li><a onclick = "openNav()">CART</a></li>
+                    <li><a onclick= "faqSidenav()">FAQ</a></li>
                   </ul>
 
 
@@ -69,34 +106,24 @@
 
                     </div>
 
+                    <select id="quantity">
 
-
-                <div id ="paymentSection">
-                    <form action="https://bitpay.com/checkout" method="post" >
-                      <input type="hidden" name="action" value="checkout" />
-                      <input type="hidden" name="posData" value="" />
-                      <input type="hidden" name="data" value="LnriGp05pYm4p5y/l3AeORxr4RUCTYdH5xN8CIJbjQpir8FrQlbISS6solWYF2kZvNn0iGQftwG/x0fhjpybdKmC39VBzIC/iv01XKW5KxHYUIEkLUb7kvBARMqGLzcqwLsxUW75jn2UHxKJP1SC1jnoti64NugsL9TbjBYjJ44+ZTkvrts8c9lUfqj37gqo0WTd4a8LrqcHhSW8t5LIMffpxxqF+fhhMI6zW0yCdSDJ2UTmCGglzAvpPzzEWqn4jVnhRuTbhD1Ym2C8RwtKUzUW/RMzOJuD4HC2cL0tbYyDeVGcuMMkzdZZ9LOKGZdB" />
-                      <input type="image" src="https://bitpay.com/img/button5.png" border="0" name="submit" alt="BitPay, the easy way to pay with bitcoins." >
-                    </form>
+                      </select>
 
 
 
-                </div>
+             <button class="addToCart" onclick ="openNav()">Add to Cart</button>
 
                     </div>
 
-
-
-
-
-
-
-
-
         </div>
 
         </div>
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+
+        
+          </div>
 
         </div>
       </div>
@@ -105,8 +132,90 @@
 
 </body>
 <script>
+
+
 loadModal();
 
+var select = '';
+
+for (i=1;i<11;i++){
+    select += '<option val=' + i + '>' + i + '</option>';
+}
+$('#quantity').html(select);
+
 </script>
+<script>
+
+
+
+  function openNav() {
+    closeFaq();
+
+
+      //document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      document.getElementById("mySidenav").style.width = "250px";
+      var list = document.getElementById('quantity');
+      var INDEX =list.selectedIndex;
+
+      var thisQuantity = list[INDEX].value;
+var hatPrice = 30;
+
+      document.getElementById("itemQuantity").value = thisQuantity;
+      document.getElementById("itemQuantity").innerHTML = thisQuantity;
+      document.getElementById("item-name").innerHTML='Ethereum Hat';
+      document.getElementById("hatPrice").innerHTML = ' x £' + hatPrice.toFixed(2);
+      document.getElementById("side-pic").src="Images/hat.jpg";
+
+     document.getElementById("mySubtotal").innerHTML='Subtotal: £' + (thisQuantity * 30.00).toFixed(2);
+
+
+     // outsideClick();
+  }
+
+  function faqSidenav(){
+    closeNav();
+
+    document.getElementById("faqSidenav").style.width = "250px";
+
+  }
+
+  function closeFaq(){
+
+    document.getElementById("faqSidenav").style.width = "0";
+  }
+
+  function closeNav() {
+
+    //document.body.style.backgroundColor = "white";
+      document.getElementById("mySidenav").style.width = "0";
+
+
+  }
+
+  $( "#emptyCart" ).click(function() {
+
+
+    document.getElementById("mySubtotal").innerHTML='';
+    document.getElementById("itemQuantity").innerHTML="";
+    document.getElementById("item-name").innerHTML='';
+    document.getElementById("hatPrice").innerHTML="";
+    document.getElementById("side-pic").src="";
+
+});
+
+function goCheckout(){
+
+let item_name = document.getElementById("item-name").innerHTML;
+let item_quantity = document.getElementById("itemQuantity").innerHTML;
+
+Cookies.set('item_name',item_name);
+Cookies.set('item_quantity',item_quantity);
+location.href='../CryptoClub/checkout';
+}
+
+
+
+  </script>
+
 
 </html>
